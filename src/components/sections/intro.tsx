@@ -82,7 +82,7 @@ export default function IntroSection() {
               all pages at once. Create a unique look in just a few minutes.
             </p>
           </div>
-          <div className="relative mt-6 sm:mt-0">
+          <div className="relative mt-16">
             <img
               src="/assets/list.png"
               alt="Design System"
