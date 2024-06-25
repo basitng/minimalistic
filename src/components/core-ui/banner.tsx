@@ -4,7 +4,10 @@ import { Apple } from "lucide-react";
 
 export default function Banner() {
   return (
-    <div className="w-full flex flex-col items-center justify-start pt-32 sm:pt-24 md:pt-36 min-h-screen px-4 sm:px-6 lg:px-8">
+    <div
+      id="home"
+      className="w-full flex flex-col items-center justify-start pt-32 sm:pt-24 md:pt-36 min-h-screen px-4 sm:px-6 lg:px-8"
+    >
       <Notos />
       <div className="w-full max-w-2xl flex flex-col pt-8 space-y-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-center leading-tight text-gray-900">

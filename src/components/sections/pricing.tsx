@@ -53,7 +53,10 @@ const PricingSection: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <section className="flex flex-col items-center justify-center w-full bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <section
+      id="pricing"
+      className="flex flex-col items-center justify-center w-full bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8"
+    >
       <PricingHeader />
       <BillingToggle isAnnual={isAnnual} setIsAnnual={setIsAnnual} />
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 sm:mt-10">

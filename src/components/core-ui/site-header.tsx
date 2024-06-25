@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 
 const navigation = {
   path: [
-    { pathname: "Projects", path: "#projects" },
+    { pathname: "Projects", path: "#home" },
     { pathname: "Solutions", path: "#solutions" },
     { pathname: "Pricing", path: "#pricing" },
     { pathname: "Company", path: "#company" },
