@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 const inter = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Owl AI - Logo generator powered by gpt-4o",
-  description: "Save time and money with our logo generator",
+  title: "Magic UI - Minimal, beautiful, and fast UI Kit for cracked engineers",
+  description: "Minimal, beautiful, and fast UI Kit for cracked engineers",
   openGraph: {
     type: "website",
     locale: "en_US",
