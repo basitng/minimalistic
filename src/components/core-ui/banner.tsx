@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "../ui/button";
-import { Apple } from "lucide-react";
 
 export default function Banner() {
   return (
@@ -9,17 +10,56 @@ export default function Banner() {
       className="w-full flex flex-col items-center justify-start pt-32 sm:pt-24 md:pt-36 min-h-screen px-4 sm:px-6 lg:px-8"
     >
       <Notos />
-      <div className="w-full max-w-2xl flex flex-col pt-8 space-y-4">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-center leading-tight text-gray-900">
-          Website design system and UI Kit for Figma
-        </h1>
-        <p className="text-lg sm:text-xl text-center max-w-xl mx-auto leading-7 sm:leading-9 text-gray-500">
+      <div className="w-full max-w-2xl flex flex-col pt-8 space-y-4 overflow-hidden">
+        <motion.h1
+          className="text-4xl sm:text-5xl md:text-6xl font-medium text-center leading-tight text-gray-900"
+          initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+          animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+            ease: [0.6, -0.05, 0.01, 0.99],
+            staggerChildren: 0.2,
+          }}
+        >
+          {["Website", "design system", "and UI Kit", "for Figma"].map(
+            (text, index) => (
+              <motion.span
+                key={index}
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  ease: [0.6, -0.05, 0.01, 0.99],
+                }}
+              >
+                {text}{" "}
+              </motion.span>
+            )
+          )}
+        </motion.h1>
+        <motion.p
+          className="text-lg sm:text-xl text-center max-w-xl mx-auto leading-7 sm:leading-9 text-gray-500"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.8,
+            duration: 0.8,
+            ease: [0.6, -0.05, 0.01, 0.99],
+          }}
+        >
           No matter what project you're working on, we've got you covered with
           the best wireframe kits for any platform.
-        </p>
+        </motion.p>
       </div>
 
-      <div className="w-full max-w-2xl mx-auto flex flex-col sm:flex-row items-center sm:space-x-4 justify-center mt-8 sm:mt-10 space-y-4 sm:space-y-0">
+      <motion.div
+        className="w-full max-w-2xl mx-auto flex flex-col sm:flex-row items-center sm:space-x-4 justify-center mt-8 sm:mt-10 space-y-4 sm:space-y-0"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
+      >
         <Button className="w-full sm:w-auto">
           <svg
             width="16"
@@ -45,23 +85,40 @@ export default function Banner() {
             $9.9
           </div>
         </Button>
-      </div>
-      <p className="text-sm mt-5 text-gray-500/80">No in-app purchases.</p>
+      </motion.div>
+      <motion.p
+        className="text-sm mt-5 text-gray-500/80"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
+        No in-app purchases.
+      </motion.p>
 
-      <div className="w-full mx-auto flex justify-center items-center mt-16 sm:mt-24 md:mt-36">
+      <motion.div
+        className="w-full mx-auto flex justify-center items-center mt-16 sm:mt-24 md:mt-36"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.4, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
+      >
         <img
           src="/assets/Browser.png"
           alt="browser"
           className="w-full max-w-5xl h-auto"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }
 
 const Notos = () => {
   return (
-    <div className="w-auto py-1 px-2 border border-[#0A0F2908] rounded-full ring-1 ring-gray-200 flex items-center space-x-2 bg-[#e3eafe]">
+    <motion.div
+      className="w-auto py-1 px-2 border border-[#0A0F2908] rounded-full ring-1 ring-gray-200 flex items-center space-x-2 bg-[#e3eafe]"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
+    >
       <div className="w-fit rounded-full bg-white text-[#133a99] font-medium text-xs sm:text-sm text-center px-2 py-0.5">
         Update
       </div>
@@ -81,6 +138,6 @@ const Notos = () => {
           fill="#133A9A"
         />
       </svg>
-    </div>
+    </motion.div>
   );
 };
