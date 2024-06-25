@@ -1,11 +1,11 @@
-import Banner from "@/components/core-ui/banner";
-import SiteHeader from "@/components/core-ui/site-header";
+import Banner from "@/components/sections/banner";
 import CTASection from "@/components/sections/cta";
 import FAQSection from "@/components/sections/faq";
 import FeatureSection from "@/components/sections/feature";
 import Footer from "@/components/sections/footer";
 import IntroSection from "@/components/sections/intro";
 import PricingSection from "@/components/sections/pricing";
+import SiteHeader from "@/components/sections/site-header";
 import TestimoniesSection from "@/components/sections/testimonies";
 
 export default function Home() {
