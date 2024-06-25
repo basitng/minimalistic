@@ -22,10 +22,10 @@ const navigation = {
 
 const menuVariants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: { staggerChildren: 0.03, staggerDirection: -1 },
   },
 };
 
@@ -34,14 +34,16 @@ const menuItemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
+      y: { type: "spring", stiffness: 300, damping: 24 },
+      opacity: { duration: 0.2 },
     },
   },
   closed: {
-    y: 50,
+    y: 20,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 },
+      y: { type: "spring", stiffness: 300, damping: 24 },
+      opacity: { duration: 0.2 },
     },
   },
 };
@@ -87,16 +89,22 @@ export default function SiteHeader() {
     };
   }, [controlNavbar]);
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 flex justify-center z-50 px-4">
         <motion.div
           initial={{ y: 0 }}
           animate={{ y: isVisible ? 0 : -100 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.15, ease: "easeInOut" }}
           className={cn(
-            "w-full max-w-screen-xl rounded-md mt-2 py-2 transition-all duration-300",
-            isScrolled ? "bg-white border border-gray-200" : "bg-transparent"
+            "w-full max-w-screen-xl rounded-md mt-2 py-2 transition-all duration-200",
+            isScrolled
+              ? "bg-white border border-gray-200 shadow-sm"
+              : "bg-transparent"
           )}
         >
           <div className="px-4">
@@ -145,6 +153,7 @@ export default function SiteHeader() {
                     variant="default"
                     style={{ borderRadius: 12 }}
                     className="text-sm font-semibold bg-[#edeef0] text-gray-700 hover:bg-black hover:text-white"
+                    onClick={handleLinkClick}
                   >
                     Sign Up
                   </Button>
@@ -168,7 +177,7 @@ export default function SiteHeader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.15 }}
             className="fixed inset-0 bg-white z-40 md:hidden"
           >
             <motion.div
@@ -176,11 +185,11 @@ export default function SiteHeader() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="flex flex-col justify-center items-center h-full space-y-6 p-4"
+              className="flex flex-col justify-center items-center h-full space-y-4 p-4"
             >
               {navigation.path.map((item) => (
                 <motion.div key={item.pathname} variants={menuItemVariants}>
-                  <Link href={item.path}>
+                  <Link href={item.path} onClick={handleLinkClick}>
                     <p className="text-2xl text-gray-700 font-medium hover:text-gray-900 cursor-pointer">
                       {item.pathname}
                     </p>
@@ -188,7 +197,7 @@ export default function SiteHeader() {
                 </motion.div>
               ))}
               <motion.div variants={menuItemVariants}>
-                <Link href="/login">
+                <Link href="/login" onClick={handleLinkClick}>
                   <Button
                     variant="ghost"
                     className="text-2xl font-semibold text-gray-600"

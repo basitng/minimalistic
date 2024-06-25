@@ -14,7 +14,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "I have been using them for a year now. Everything is detailed and well organized and, of course, damn beautiful.",
+        "I have been using them for a year now. Everything is detailed and well organized and, of course, damn beautiful. It has been a game-changer for us.",
       founder: "CEO and CTO of SpaceX",
       company: "SpaceX",
     },
@@ -23,7 +23,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "The design system is incredibly intuitive and has significantly improved our development workflow. ",
+        "The design system is incredibly intuitive and has significantly improved our development workflow. It has streamlined our processes.",
       founder: "CEO of Microsoft",
       company: "Microsoft",
     },
@@ -32,7 +32,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "The components are not only visually appealing but also highly functional. It has helped us streamline our design process",
+        "The components are not only visually appealing but also highly functional. It has helped us streamline our design process and improve efficiency.",
       founder: "CEO of Google and Alphabet",
       company: "Google",
     },
@@ -41,7 +41,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "The attention to detail in this design system is remarkable. It has allowed us to maintain consistency across our digital platforms effortlessly.",
+        "The attention to detail in this design system is remarkable. It has allowed us to maintain consistency across our digital platforms effortlessly and efficiently.",
       founder: "CEO of General Motors",
       company: "General Motors",
     },
@@ -50,7 +50,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "The flexibility and scalability of this system are impressive. It has significantly reduced our time-to-market for new features and products.",
+        "The flexibility and scalability of this system are impressive. It has significantly reduced our time-to-market for new features and products. A fantastic tool.",
       founder: "CEO of Apple",
       company: "Apple",
     },
@@ -59,7 +59,7 @@ export default function TestimoniesSection() {
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       review:
-        "The performance optimizations built into this design system are top-notch. It has helped us create smoother, more responsive user interfaces.",
+        "The performance optimizations built into this design system are top-notch. It has helped us create smoother, more responsive user interfaces with ease.",
       founder: "CEO of NVIDIA",
       company: "NVIDIA",
     },
@@ -77,10 +77,10 @@ export default function TestimoniesSection() {
       <AnimatePresence mode="wait">
         <motion.div
           key={testimonies[activeTestimony].name}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="flex flex-col items-center space-y-4 py-4 sm:py-6"
         >
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-black leading-snug">
@@ -108,7 +108,7 @@ export default function TestimoniesSection() {
               scale: activeTestimony === index ? 1.2 : 1,
               opacity: activeTestimony === index ? 1 : 0.65,
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={() => setActiveTestimony(index)}
           >
             <Avatar
